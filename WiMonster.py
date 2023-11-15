@@ -82,7 +82,7 @@ class colors:
 
 def netshCracker():
     meta_data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles'])
-    data = meta_data.decode('utf-8', errors ="backslashreplace")
+    data = meta_data
     data = data.split('\n')
 
     profiles = []
