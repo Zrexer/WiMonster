@@ -107,10 +107,10 @@ def netshCracker():
             results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
             
             try:
-                print("{:<30}| {:<}".format(i, results[0]))
+                print("{:<30} {:<}".format(i, results[0]))
         
             except IndexError:
-                print("{:<30}| {:<}".format(i, ""))
+                print("{:<30} {:<}".format(i, ""))
 
         except Exception as E:
             print(E)
