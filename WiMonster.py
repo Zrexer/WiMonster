@@ -97,7 +97,6 @@ def netshCracker():
         
     print("{:<30}| {:<}".format(f"{colors.red}Wi-Fi Name", f"{colors.red}Password"))
     pystyle.Write.Print('----------------------------------------------', pystyle.Colors.green_to_yellow, 0.01)
-    print()
         
     for i in profiles:
         try:
