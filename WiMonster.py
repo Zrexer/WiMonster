@@ -81,7 +81,7 @@ class colors:
     magenta = '\033[95m'
 
 def netshCracker():
-    meta_data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles'])
+    meta_data = subprocess.getoutput(['netsh', 'wlan', 'show', 'profiles'])
     data = meta_data
     data = data.split('\n')
 
@@ -100,7 +100,7 @@ def netshCracker():
         
     for i in profiles:
         try:
-            results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key = clear'])
+            results = subprocess.getoutput(['netsh', 'wlan', 'show', 'profile', i, 'key = clear'])
 
             results = results.split('\n')
             results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
@@ -125,3 +125,5 @@ if __name__ == '__main__':
         
     if "--netsh-cracker" in lis:
         netshCracker()
+
+
