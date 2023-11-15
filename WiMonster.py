@@ -15,13 +15,13 @@ banner = """
 pystyle.Write.Print(banner, pystyle.Colors.blue_to_cyan, 0)
 print()
 print()
-pystyle.Write.Print('---------------------------', pystyle.Colors.yellow_to_red, 0.009)
+pystyle.Write.Print('-------------------------------', pystyle.Colors.yellow_to_red, 0.009)
 print()
 pystyle.Write.Print('|', pystyle.Colors.yellow_to_red, 0.009)
 pystyle.Write.Print('         WiMonster       ', pystyle.Colors.blue_to_cyan)
 pystyle.Write.Print('|', pystyle.Colors.yellow_to_red, 0.009)
 print()
-pystyle.Write.Print('---------------------------', pystyle.Colors.yellow_to_red, 0.009)
+pystyle.Write.Print('-------------------------------', pystyle.Colors.yellow_to_red, 0.009)
 print()
 print()
 print()
@@ -34,7 +34,7 @@ def usageConsole():
 def usageHelp():
     pystyle.Write.Print('{:<20} {:<}'.format('Command', 'Usage'), pystyle.Colors.green_to_yellow, 0)
     print()
-    pystyle.Write.Print('-------------------------', pystyle.Colors.green_to_yellow, 0)
+    pystyle.Write.Print('-----------------------------', pystyle.Colors.green_to_yellow, 0)
     print()
     pystyle.Write.Print('{:<20} {:<}'.format('--help', 'show this message'), pystyle.Colors.purple_to_blue, 0)
     print()
@@ -101,7 +101,7 @@ def netshCracker():
     for i in profiles:
         try:
             results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key = clear'])
-            results = results.decode('utf-8', errors ="backslashreplace")
+
             results = results.split('\n')
             results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
             
@@ -111,8 +111,8 @@ def netshCracker():
             except IndexError:
                 print("{:<30}| {:<}".format(i, ""))
 
-        except subprocess.CalledProcessError:
-            print("Encoding Error Occurred")
+        except Exception as E:
+            print(E)
 
 if __name__ == '__main__':
     lis = sys.argv 
